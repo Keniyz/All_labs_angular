@@ -28,7 +28,6 @@ export class NewDialogComponent implements OnInit {
   ngOnInit() {
   }
   crtCard(){
-    console.log('name====='+this.name);
     let newcard= {
       dateBook: this.dtbook,
       about: 'Нове',

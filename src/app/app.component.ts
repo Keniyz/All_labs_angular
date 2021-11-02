@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpService} from "./http.service";
+import {MatDialog} from "@angular/material/dialog";
+import {NewDialogComponent} from "./new-dialog/new-dialog.component";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ export class AppComponent {
   newTextDirective = '';
   isVisiblecard:boolean=false;
 
-  constructor(public httpService: HttpService) {
+  constructor(public httpService: HttpService, public dialog: MatDialog) {
     //this.loadBook();
   }
 
@@ -25,20 +27,18 @@ export class AppComponent {
     this.httpService.allData.splice(this.httpService.allData.indexOf(id), 1); // видаляємо картку
   }
 
-  addNewReply() {
-    let card = {
-      dateBook: '2019-08-30T10:26:14.000Z',
-      about: 'Розповіді',
-      cost: '550',
-      rating: 2,
-      name: 'Мері Попінс',
-      id: 5,
-      type: 'IMPORTANT'
-    };
-    this.httpService.allData.push(card); // Пушим картку в масив
-  }
   chamgeBook(item:any){
     item.rating++;  // Збільшуємо рейтинг
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewDialogComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
   }
 
 }

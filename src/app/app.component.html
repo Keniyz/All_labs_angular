@@ -50,7 +50,7 @@
        <p>Рейтинг: {{item.rating}}</p>
      </mat-card-content>
      <mat-card-actions>
-       <button  mat-button (click)="addNewReply()" >Додати</button>
+       <button  mat-button (click)="openDialog()" >Додати</button>
        <button mat-button (click)="removeBook(item)">Видалити</button>
        <button mat-button (click)="chamgeBook(item)" >Змінити</button>
      </mat-card-actions>
@@ -63,7 +63,7 @@
       Для більшого контролю над присвоєнням та читанням значення замість властивості використовують «функцію-геттер» та «функцію-сеттер», геттер повертає значення, сеттер – встановлює.
     </div>
     <div class="block">
-      <h1>2. Як поставити дефолтне значення для інпуту?</h1> <br>
+      <h1>2. Як поставити дефолтне значення для інпуту?</h1>
       <br>
       [value]="myDefaultValue" <br>
       в компоненті:<br>
@@ -76,13 +76,7 @@
       тоді як @ViewChild  переглядає тільки елементи, які знаходяться безпосередньо в шаблоні представлення.
     </div>
     <div class="block">
-      <h1>4. Яка різниця між @ViewChild і @ContentChild()?</h1> <br>
-      <br>
-      @ContentChild повертає директиву, що існуює всередині елемента <ng-content></ng-content> ,
-      тоді як @ViewChild  переглядає тільки елементи, які знаходяться безпосередньо в шаблоні представлення.
-    </div>
-    <div class="block">
-      <h1>5. Для чого нам providedIn: ‘root’ ?</h1> <br>
+      <h1>4. Для чого нам providedIn: ‘root’ ?</h1> <br>
       <br>
       Значення root для параметра providedIn у декораторі Injectable  дозволяє встановити кореневий рівень дій.
       Кореневий рівень (root) передбачає дію сервісу для всієї програми. Створюється та використовується один об'єкт сервісу для всіх частин програми.

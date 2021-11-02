@@ -1,0 +1,38 @@
+<div class="body">
+  <h1>Внесіть відомості про книгу</h1>
+<ol>
+  <li>
+    <mat-form-field appearance="fill">
+      <mat-label>Назва</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+  </li><li>
+    <mat-form-field appearance="fill">
+      <mat-label>Вартість</mat-label>
+      <input matInput [(ngModel)]="cost">
+    </mat-form-field>
+  </li>
+  <li>
+  <mat-form-field appearance="fill">
+    <mat-label>Тип</mat-label>
+    <input matInput [(ngModel)]="type">
+  </mat-form-field>
+ </li>
+  <li>
+    <mat-form-field appearance="fill">
+      <mat-label>Дата</mat-label>
+      <input matInput [(ngModel)]="dtbook">
+    </mat-form-field>
+  </li>
+  <li>
+    <mat-form-field appearance="fill">
+      <mat-label>Рейтинг</mat-label>
+      <input matInput [(ngModel)]="rank">
+    </mat-form-field>
+  </li>
+ <br>
+    <button mat-raised-button (click)="crtCard()">Додати</button>
+
+
+</ol>
+</div>

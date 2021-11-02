@@ -10,12 +10,14 @@ export class AppComponent {
   newText: string = '';
   newParam: number = 0;
   newTextDirective = '';
+  isVisiblecard:boolean=false;
 
   constructor(public httpService: HttpService) {
-    this.loadBook();
+    //this.loadBook();
   }
 
   loadBook(): void {      // Натискаємо кнопку
+    this.isVisiblecard = !this.isVisiblecard;
     this.httpService.getData()
   }
 

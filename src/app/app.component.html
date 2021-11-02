@@ -32,15 +32,15 @@
       numeric_value | number [ : digitsInfo [ : locale ] ] <br><hr>
     </div>
   </mat-tab>
-  <mat-tab label="LAB 4">
+  <mat-tab label="LAB 4"> <!-- NEW  -->
     <!-- Кнопка завантаження списку -->
     <section>
       <div class="example-button-row">
-        <button (click)="loadBook()" mat-raised-button color="primary">Завантажити список</button>
+        <button (click)="loadBook()" mat-raised-button color="primary">Завантажити список</button> <!-- Вивід в консоль JSON  -->
       </div>
     </section>
     <!-- Вивід книг із файлу json -->
- <div>
+ <div *ngIf="isVisiblecard">
    <mat-card *ngFor="let item of this.httpService.allData" class="example-card">
      <mat-card-title>{{item.id}}.{{item.name}}</mat-card-title>
      <mat-card-subtitle>Вартість:{{item.cost}} грн</mat-card-subtitle>

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "dateBook": "2018-11-30T10:26:14.000Z",
+      "about": "Програмування",
+      "cost": "1000",
+      "rating": "1",
+      "name": "Хмарний GO",
+      "id": 1,
+      "type": "IMPORTANT"
+    },
+    {
+      "dateBook": "2019-11-30T10:26:14.000Z",
+      "about": "Програмування",
+      "cost": "2000",
+      "rating": "2",
+      "name": "Все про PHP",
+      "id": 2,
+      "type": "IMPORTANT"
+    },
+    {
+      "dateBook": "2019-11-30T10:26:14.000Z",
+      "about": "Програмування",
+      "cost": "850",
+      "rating": "2",
+      "name": "JavaScript для професіоналів",
+      "id": 3,
+      "type": "IMPORTANT"
+    },
+    {
+      "dateBook": "2019-09-30T10:26:14.000Z",
+      "about": "Розповіді",
+      "cost": "200",
+      "rating": "2",
+      "name": "Сіяч Вітру",
+      "id": 4,
+      "type": "IMPORTANT"
+    },
+    {
+      "dateBook": "2019-08-30T10:26:14.000Z",
+      "about": "Розповіді",
+      "cost": "550",
+      "rating": "2",
+      "name": "Мері Попінс",
+      "id": 5,
+      "type": "IMPORTANT"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": true,
+      "unsorted": false
+    },
+    "pageNumber": 0,
+    "pageSize": 10,
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "last": true,
+  "totalElements": 5,
+  "totalPages": 1,
+  "first": true,
+  "sort": {
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 10,
+  "size": 10,
+  "number": 0
+}

@@ -1,5 +1,7 @@
 <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
   <mat-tab  label="LAB 2">
+  </mat-tab>
+  <mat-tab label="LAB 3">
     <div class="block">
       Завдання №1 [Pipe]
       <br><br><b>Введіть текст: </b><input  [(ngModel)]="newText">
@@ -27,14 +29,68 @@
       Головне значення між angular ngIf directive & hidden or display:none є те що ngIf додасть або видалить елемент з DOM на основі умови або виразу, а display:none окаже або приховає елемент HTML. <br><hr>
       <b>4. Пояснити decimal pipe</b><br>
       Decimal Pipe — це один із вбудованих каналів у Angular, який використовується для форматування десяткових чисел відповідно до даних про десяткові цифри та інформації про місцевість.<br>
-       numeric_value | number [ : digitsInfo [ : locale ] ] <br><hr>
+      numeric_value | number [ : digitsInfo [ : locale ] ] <br><hr>
     </div>
   </mat-tab>
-  <mat-tab label="LAB 3"> Content 3 </mat-tab>
-  <mat-tab label="LAB 4"> Content 4 </mat-tab>
-  <mat-tab label="LAB 5"> Content 5 </mat-tab>
-  <mat-tab label="LAB 6"> Content 6 </mat-tab>
-  <mat-tab label="LAB 7"> Content 7 </mat-tab>
+  <mat-tab label="LAB 4">
+    <!-- Кнопка завантаження списку -->
+    <section>
+      <div class="example-button-row">
+        <button (click)="loadBook()" mat-raised-button color="primary">Завантажити список</button>
+      </div>
+    </section>
+    <!-- Вивід книг із файлу json -->
+ <div>
+   <mat-card *ngFor="let item of this.httpService.allData" class="example-card">
+     <mat-card-title>{{item.id}}.{{item.name}}</mat-card-title>
+     <mat-card-subtitle>Вартість:{{item.cost}} грн</mat-card-subtitle>
+     <mat-card-content>
+       <p>Тип: {{item.about}}</p>
+       <p>Дата: {{item.dateBook}}</p>
+       <p>Рейтинг: {{item.rating}}</p>
+     </mat-card-content>
+     <mat-card-actions>
+       <button  mat-button (click)="addNewReply()" >Додати</button>
+       <button mat-button (click)="removeBook(item)">Видалити</button>
+       <button mat-button (click)="chamgeBook(item)" >Змінити</button>
+     </mat-card-actions>
+   </mat-card>
+ </div>
+
+    <div class="block">
+      <h1>1. Чому варто використовувати гетери і сетери змість того щоб просто міняти змінну у сервісі?</h1> <br>
+      <br>
+      Для більшого контролю над присвоєнням та читанням значення замість властивості використовують «функцію-геттер» та «функцію-сеттер», геттер повертає значення, сеттер – встановлює.
+    </div>
+    <div class="block">
+      <h1>2. Як поставити дефолтне значення для інпуту?</h1> <br>
+      <br>
+      [value]="myDefaultValue" <br>
+      в компоненті:<br>
+      myDefaultValue: number = 1;
+    </div>
+    <div class="block">
+      <h1>3. Яка різниця між @ViewChild і @ContentChild()?</h1> <br>
+      <br>
+      @ContentChild повертає директиву, що існуює всередині елемента <ng-content></ng-content> ,
+      тоді як @ViewChild  переглядає тільки елементи, які знаходяться безпосередньо в шаблоні представлення.
+    </div>
+    <div class="block">
+      <h1>4. Яка різниця між @ViewChild і @ContentChild()?</h1> <br>
+      <br>
+      @ContentChild повертає директиву, що існуює всередині елемента <ng-content></ng-content> ,
+      тоді як @ViewChild  переглядає тільки елементи, які знаходяться безпосередньо в шаблоні представлення.
+    </div>
+    <div class="block">
+      <h1>5. Для чого нам providedIn: ‘root’ ?</h1> <br>
+      <br>
+      Значення root для параметра providedIn у декораторі Injectable  дозволяє встановити кореневий рівень дій.
+      Кореневий рівень (root) передбачає дію сервісу для всієї програми. Створюється та використовується один об'єкт сервісу для всіх частин програми.
+    </div>
+</mat-tab>
+    <mat-tab label="LAB 5"> Content 5 </mat-tab>
+<mat-tab label="LAB 6"> Content 6 </mat-tab>
+<mat-tab label="LAB 7"> Content 7 </mat-tab>
 
 </mat-tab-group>
 

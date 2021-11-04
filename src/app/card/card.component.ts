@@ -10,6 +10,7 @@ export class CardComponent  {
 
   constructor(
     public fm: DFormComponent
-  )
-  console.log(fm);
+  ) {
+  }
+
 }

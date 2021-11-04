@@ -13,6 +13,10 @@ import {NewDialogComponent} from './new-dialog/new-dialog.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
+import { DFormComponent } from './driven_form/d-form/d-form.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -20,7 +24,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     AppComponent,
     FormatPipe,
     NumbersDirective,
-    NewDialogComponent
+    NewDialogComponent,
+    DFormComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +38,11 @@ import {MatDialogModule} from "@angular/material/dialog";
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [DFormComponent, CardComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

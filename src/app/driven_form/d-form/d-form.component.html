@@ -1,0 +1,40 @@
+<h1><b>Відомості про телефон</b></h1>
+
+<form name="form" #myForm="ngForm" novalidate>
+<mat-form-field appearance="fill" class="input" >
+  <mat-label>Бренд</mat-label>
+  <mat-select name="brand" [(ngModel)]="forms.brand">
+    <mat-option value="one" *ngFor="let comp of this.companies"  >{{comp}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input">
+  <mat-label>Модель</mat-label>
+  <input matInput name="model" [(ngModel)]="forms.model" >
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input">
+  <mat-label>Серія</mat-label>
+  <input matInput name="seria" [(ngModel)]="forms.seria" >
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input"  >
+  <mat-label>Колір</mat-label>
+  <mat-select name="color" [(ngModel)]="forms.color">
+    <mat-option value="one" *ngFor="let clr of this.color"  >{{clr}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input"  >
+  <mat-label>Примітка</mat-label>
+  <textarea matInput name="fabula" [(ngModel)]="forms.fabula"></textarea>
+</mat-form-field>
+
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="sendForm(myForm)">Зберегти</button>
+    <button mat-raised-button color="accent">Скинути</button>
+  </div>
+</section>
+</form>
+

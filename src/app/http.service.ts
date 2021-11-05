@@ -12,9 +12,9 @@ export class HttpService {
   }
 
   getData() {
-    return this.http.get('assets/json/book.json').subscribe((data: any) => {
-      this.allData = data.content; //Змінна, яка містить список книг
-      console.log(this.allData);  //вивести список книг у консоль;
+    return this.http.get('assets/json/book.json').subscribe(data => {
+      this.allData = data; //Змінна, яка містиме список книг
+      console.log(this.allData.content);
     })
   }
 }

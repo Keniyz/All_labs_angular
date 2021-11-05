@@ -1,17 +1,14 @@
 
-<div *ngFor="let elem of fm.phones">
-<mat-card class="example-card">
-  <mat-card-title>{{elem.brand}}</mat-card-title>
-  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  <mat-card-content>
-    <p>This card indeterminates progress bar.</p>
-    <p></p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+  <div *ngFor="let elem of fm.phones">
+    <mat-card class="example-card">
+      <mat-card-title><h1>{{elem.brand}}</h1></mat-card-title>
+      <mat-card-subtitle>{{elem.model}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>Колір: {{elem.color}}</p>
+        <p>Серія: {{elem.seria}}</p>
+        <p>Фабула: {{elem.fabula}}</p>
+        <p></p>
+      </mat-card-content>
+    </mat-card>
 </div>
-
-
+<br>

@@ -1,20 +1,25 @@
-<h1><b>Відомості про телефон</b></h1>
+<h1><b>Відомості про телефон <br>(Template-driven forms)</b></h1>
 <form name="form" #myForm="ngForm" novalidate>
 <mat-form-field appearance="fill" class="input" >
   <mat-label>Бренд</mat-label>
-  <mat-select name="brand" [(ngModel)]="forms.comp"  >
+  <mat-select name="brand" id="brand" [(ngModel)]="forms.comp"   #brand="ngModel"  minlength="2" >
     <mat-option  *ngFor="let comp of this.companies"  [value]='comp'>{{comp}}</mat-option>
   </mat-select>
+  <mat-hint align="end" *ngIf="brand.errors?.['minlength']">Minlength 2*</mat-hint>
+  <mat-hint align="end" *ngIf="brand.errors?.['required']">Brand is required.</mat-hint>
 </mat-form-field>
 
 <mat-form-field appearance="fill" class="input">
   <mat-label>Модель</mat-label>
-  <input matInput name="model" [(ngModel)]="forms.model" >
+  <input matInput name="model" [(ngModel)]="forms.model" #model="ngModel"   minlength="3">
+  <mat-hint align="end" *ngIf="model.errors?.['required']">Model is required.</mat-hint>
+  <mat-hint align="end" *ngIf="model.errors?.['minlength']">Minlength 3*</mat-hint>
 </mat-form-field>
 
 <mat-form-field appearance="fill" class="input">
   <mat-label>Серія</mat-label>
-  <input matInput name="seria" [(ngModel)]="forms.seria" >
+  <input matInput name="seria" [(ngModel)]="forms.seria" minlength="2" #seria="ngModel"  minlength="3">
+  <mat-hint align="end" *ngIf="seria.errors?.['minlength']">Minlength 3*</mat-hint>
 </mat-form-field>
 
 <mat-form-field appearance="fill" class="input"  >

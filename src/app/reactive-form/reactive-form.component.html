@@ -1,0 +1,45 @@
+<h1><b>Відомості про телефон <br>(Reactive forms)</b></h1>
+<form [formGroup]="formGroup"   >
+  <mat-form-field appearance="fill" class="input" >
+    <mat-label>Бренд</mat-label>
+    <mat-select name="brand" id="brand"  formControlName="brand" >
+      <mat-option   *ngFor="let comp of this.companies"  [value]='comp'  >{{comp}}</mat-option>
+    </mat-select>
+   <mat-hint align="end" *ngIf="formGroup.controls?.brand?.errors?.required">Brand is required </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Модель</mat-label>
+    <input matInput name="model"  formControlName="model">
+    <mat-hint align="end" *ngIf="formGroup.controls?.model?.errors?.required">Model is required </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Серія</mat-label>
+    <input matInput name="seria"  formControlName="seria">
+    <mat-hint align="end" *ngIf="formGroup.controls?.seria?.errors?.required || formGroup.controls?.seria?.errors?.minLength">Seria is required or minLength is 3</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="input"  >
+    <mat-label>Колір</mat-label>
+    <mat-select name="color" formControlName="color" >
+      <mat-option value="one"  *ngFor="let clr of this.color"  [value]='clr' >{{clr}}</mat-option>
+    </mat-select>
+    <mat-hint align="end" *ngIf="formGroup.controls?.color?.errors?.required">Color is required </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="input"  >
+    <mat-label>Примітка</mat-label>
+    <textarea matInput name="fabula"  formControlName="fabula"></textarea>
+    <mat-hint align="end" *ngIf="formGroup.controls?.fabula?.errors?.required || formGroup.get('fabula')?.hasError('minLen')">Fabula is required and length > =3 </mat-hint>
+  </mat-form-field>
+
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="showAction()" >Зберегти</button>
+      <button mat-raised-button color="accent"  (click)="formGroup.reset()" >Скинути</button>
+    </div>
+  </section>
+  <div class="example-button-row" ><b>{{resultt}}</b></div>
+</form>
+

@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {FormatPipe} from "./format.pipe";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NumbersDirective} from "./app.positivnumber.directive";
@@ -17,6 +17,7 @@ import { DFormComponent } from './driven_form/d-form/d-form.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { CardComponent } from './card/card.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CardComponent } from './card/card.component';
     NumbersDirective,
     NewDialogComponent,
     DFormComponent,
-    CardComponent
+    CardComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { CardComponent } from './card/card.component';
     MatInputModule,
     MatDialogModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [DFormComponent, CardComponent],
   bootstrap: [AppComponent]

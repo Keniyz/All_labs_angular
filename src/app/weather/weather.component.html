@@ -1,0 +1,65 @@
+<h1><b>Переглянути погоду</b></h1>
+<form [formGroup]="formGroupWeather" >
+  <!-- Температура -->
+  <div>
+        <mat-form-field appearance="fill" class="input" >
+          <mat-label>Одиниця виміру</mat-label>
+          <mat-select  formControlName="temoeratura" name="temoeratura">
+            <mat-option value="imperial">Фаренгейти</mat-option>
+            <mat-option value="metric">Цельсій</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div><div>
+        <!-- Місто -->
+        <mat-form-field appearance="fill" class="input" >
+          <mat-label>Місто</mat-label>
+          <mat-select  formControlName="city" name="city">
+            <mat-option value="Kiev">Київ</mat-option>
+            <mat-option value="London,uk">Лондон</mat-option>
+            <mat-option value="Prague">Прага</mat-option>
+            <mat-option value="New York">Нюйорк</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+  </div><div>
+    <button class="button" mat-raised-button color="primary" [disabled]="formGroupWeather.invalid" (click)="sendParam()">На сьогодні</button>
+    <button class="button" mat-raised-button color="primary" [disabled]="formGroupWeather.invalid" (click)="sendParam5day()">На 5 днів </button>
+    <button class="button" mat-raised-button color="accent"  (click)="formGroupWeather.reset()" >Скинути</button>
+    <button class="button" mat-raised-button color="accent"  mat-button (click)="routerToMove('')">На головну</button>
+  </div>
+</form>
+<br>
+<!---------------На сьогодні---------------->
+<div *ngIf="this.weatherData">
+  <div *ngFor="let item of this.weatherData;">
+    <mat-card class="example-card">
+      <mat-card-title>Погода на сьогодні <br> {{city}} <img id="wicon" src="http://openweathermap.org/img/w/{{item.icon}}.png" alt="Weather icon"> {{temp}} {{temoeratura}}
+      </mat-card-title>
+      <mat-card-content>
+        <h3>{{item.description}}</h3>
+        <hr>
+        <b>Схід сонця: </b>{{sunrisedt*1000 | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Захід сонця: </b> {{sunsetdt*1000  | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Координати: </b> х={{lon}}  y={{lat}}<br>
+        <b>Швидкість вітру: </b> {{wind}} м/с
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<!---------------На 5 днів---------------->
+<div *ngIf="this.weatherDataList">
+  <div *ngFor="let itemlist of this.weatherDataList;">
+    <mat-card class="example-card">
+      <mat-card-title>Погода на {{itemlist.dt_txt| date: 'dd.MM.yyyy'}} час: {{itemlist.dt_txt| date: 'h:mm'}} год. </mat-card-title>
+      <mat-card-title>{{city}} <img id="wicon" src="http://openweathermap.org/img/w/{{itemlist.weather[0].icon}}.png" alt="Weather icon"> {{itemlist.main.temp.toFixed()}} {{temoeratura}}</mat-card-title>
+      <mat-card-content>
+        <h3>{{itemlist.description}}</h3>
+        <hr>
+        <b>Схід сонця: </b>{{sunrisedt*1000 | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Захід сонця: </b> {{sunsetdt*1000  | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Координати: </b> х={{lon}}  y={{lat}}<br>
+        <b>Швидкість вітру: </b> {{itemlist.wind.speed}} м/с
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

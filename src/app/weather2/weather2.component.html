@@ -1,0 +1,22 @@
+<button class="button" mat-button (click)="routerToMove('')">На головну</button>
+<div *ngIf="this.weatherDataHistory">
+  <div *ngFor="let item of this.weatherDataHistory;">
+    <mat-card class="example-card">
+      <mat-card-title>Погода на <br> {{item.dt*1000 | date: 'dd.MM.yyyy hh'}} год. <br> {{city}}
+        {{temp}}°C
+      </mat-card-title>
+      <mat-card-content>
+      <h3>{{item.weather[0].description}} <img id="wicon" src="http://openweathermap.org/img/w/{{item.weather[0].icon}}.png" alt="Weather icon"></h3>
+        <hr>
+        <b>Схід сонця: </b>{{sunrisedt*1000 | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Захід сонця: </b> {{sunsetdt*1000  | date: 'dd.MM.yyyy h:mm:ss'}}<br>
+        <b>Видимість: </b> {{item.visibility}}м.<br>
+        <b>Швидкість вітру: </b> {{item.wind_speed.toFixed()}} м.<br>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+

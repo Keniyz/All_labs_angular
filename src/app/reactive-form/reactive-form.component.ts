@@ -18,7 +18,6 @@ export class ReactiveFormComponent{
 
   constructor(public fmBulid: FormBuilder, public fmdtsr: FormDataService ) {
 
-
     this.formGroup=this.fmBulid.group({
       brand: ['',Validators.required],
       model: ['',Validators.required],

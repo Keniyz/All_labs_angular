@@ -1,17 +1,16 @@
-import {Component} from '@angular/core';
-import {HttpService} from "./http.service";
-import {MatDialog} from "@angular/material/dialog";
-import {NewDialogComponent} from "./new-dialog/new-dialog.component";
+import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {HttpService} from "../http.service";
+import {MatDialog} from "@angular/material/dialog";
+import {NewDialogComponent} from "../new-dialog/new-dialog.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 
-
-export class AppComponent {
+export class DashboardComponent {
   newText: string = '';
   newParam: number = 0;
   newTextDirective = '';
@@ -47,5 +46,8 @@ export class AppComponent {
     });
   }
 
-
+  routerToMove(param: any) {
+    console.log('param=',param)
+    this.router.navigate([param]);
+  }
 }

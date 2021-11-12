@@ -1,0 +1,140 @@
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab  label="LAB 2">
+  </mat-tab>
+  <mat-tab label="LAB 3">
+    <div class="block">
+      Завдання №1 [Pipe]
+      <br><br><b>Введіть текст: </b><input  [(ngModel)]="newText">
+      <br><b>Результат: </b> {{newText | format:2}}
+    </div>
+    <div class="block">
+      Завдання №2 [Pipe with param]
+      <br><br><br><b>Введіть текст: </b><input  [(ngModel)]="newText">
+      <br><b>Введіть параметр: </b><input  [(ngModel)]="newParam">
+      <br><b>Результат: </b> {{newText | format:newParam}}
+    </div>
+    <div class="block">
+      Завдання №3 [Directive]
+      <br><br><br><b>Введіть текст: </b>
+      <input type="text" positivenumbers [(ngModel)]="newTextDirective">
+    </div>
+    <div class="block">
+      <h1>Відповіді на питання</h1> <br>
+      <b>1. Яка різниця між структурною та атрибутивною директивою?</b><br>
+      Структурна диреткива використовується для формуання чи переформування HTML DOM щлящом додавання чи видалення елементів.<br>
+      Директиви атрибутів використовуються для зміни зовнішнього виду або поведінки елемента. Атрибутивні директиви не мають можливості змінювати структуру DOM.<br><hr>
+      <b>2. Що таке trackByFn?</b><br>
+      При використанні ngFor для зациклювання масиву в шаблонах, звертайтеся до функції trackBy, яка повертає унікальний ідентифікатор кожного елемента.<br><hr>
+      <b>3. Яка різниця між ngIf та display: none?</b><br>
+      Головне значення між angular ngIf directive & hidden or display:none є те що ngIf додасть або видалить елемент з DOM на основі умови або виразу, а display:none окаже або приховає елемент HTML. <br><hr>
+      <b>4. Пояснити decimal pipe</b><br>
+      Decimal Pipe — це один із вбудованих каналів у Angular, який використовується для форматування десяткових чисел відповідно до даних про десяткові цифри та інформації про місцевість.<br>
+      numeric_value | number [ : digitsInfo [ : locale ] ] <br><hr>
+    </div>
+  </mat-tab>
+  <mat-tab label="LAB 4"> <!-- NEW  -->
+    <!-- Кнопка завантаження списку -->
+    <section>
+      <div class="example-button-row">
+        <button (click)="loadBook()" mat-raised-button color="primary">Завантажити список</button> <!-- Вивід в консоль JSON  -->
+      </div>
+    </section>
+    <!-- Вивід книг із файлу json -->
+    <div *ngIf="isVisiblecard">
+      <mat-card *ngFor="let item of this.httpService.allData" class="example-card">
+        <mat-card-title>{{item.id}}.{{item.name}}</mat-card-title>
+        <mat-card-subtitle>Вартість:{{item.cost}} грн</mat-card-subtitle>
+        <mat-card-content>
+          <p>Тип: {{item.about}}</p>
+          <p>Дата: {{item.dateBook}}</p>
+          <p>Рейтинг: {{item.rating}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button  mat-button (click)="openDialog()" >Додати</button>
+          <button mat-button (click)="removeBook(item)">Видалити</button>
+          <button mat-button (click)="chamgeBook(item)" >Змінити</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="block">
+      <h1>1. Чому варто використовувати гетери і сетери змість того щоб просто міняти змінну у сервісі?</h1> <br>
+      <br>
+      Для більшого контролю над присвоєнням та читанням значення замість властивості використовують «функцію-геттер» та «функцію-сеттер», геттер повертає значення, сеттер – встановлює.
+    </div>
+    <div class="block">
+      <h1>2. Як поставити дефолтне значення для інпуту?</h1>
+      <br>
+      @Input() property: string = 'default';
+    </div>
+    <div class="block">
+      <h1>3. Яка різниця між @ViewChild і @ContentChild()?</h1> <br>
+      <br>
+      @ContentChild повертає директиву, що існуює всередині елемента <ng-content></ng-content> ,
+      тоді як @ViewChild  переглядає тільки елементи, які знаходяться безпосередньо в шаблоні представлення.
+    </div>
+    <div class="block">
+      <h1>4. Для чого нам providedIn: ‘root’ ?</h1> <br>
+      <br>
+      Значення root для параметра providedIn у декораторі Injectable  дозволяє встановити кореневий рівень дій.
+      Кореневий рівень (root) передбачає дію сервісу для всієї програми. Створюється та використовується один об'єкт сервісу для всіх частин програми.
+    </div>
+  </mat-tab>
+  <mat-tab label="LAB 5">
+    <div class="div">
+      <app-d-form></app-d-form>
+      <app-reactive-form></app-reactive-form>
+    </div>
+    <div class="div">
+      <app-card></app-card>
+    </div>
+    Відповіді на питання
+    <div class="block">
+      <h1>1. Яка форма краще підходить для великих проектів?</h1> <br>
+      <br>
+      Для великих проектів краще підходить реактивна форма.
+    </div>
+    <div class="block">
+      <h1>2. Опишіть компоненти життєвого циклу: OnInit, OnChanges, AfterViewInit</h1> <br>
+      <br>
+      <b>ngOnInit</b> -викликається один раз після встановлення властивостей компонента, що беруть участь у прив'язці. Виконує ініціалізацію компонента <br>
+      <b>ngOnChanges</b> -викликається до методу ngOnInit() при початковій установці властивостей, які пов'язані механізмом прив'язки, а також при будь-якій їхній переустановці або зміні їх значень. Даний метод як параметр приймає об'єкт класу SimpleChanges, який містить попередні та поточні значення властивості. <br>
+      <b>AfterViewInit</b> -викликається фреймворком Angular після ініціалізації уявлення компонента, а також уявлень дочірніх компонентів. Викликається лише один раз відразу після першого виклику методу ngAfterContentChecked() <br>
+    </div>
+    <div class="block">
+      <h1>3. Опишіть вбудовану перевірку в Angular</h1> <br>
+      <br>
+      Перед тим, як надіслати форму, нам треба переконатися, що ця форма містить коректні значення. Для перевірки використовується механізм валідації.<br>
+      Для перевірки коректності нам достатньо подивитися на властивість valid.<br> Однак не завжди може бажано відразу відображати помилку під час завантаження сторінки.<br>
+      У цьому випадку ми дивимося на валідність, якщо поле введення вже отримувало фокус.
+    </div>
+    <div class="block">
+      <h1>4. Що таке formControl </h1> <br>
+      <br>
+      myForm : FormGroup = new FormGroup(<br>
+
+      "userName": new FormControl("Tom", Validators.required),<br>
+      "userEmail": new FormControl("", [<br>
+      Validators.required, <br>
+      Validators.email<br>
+      ]),<br>
+      "userPhone": new FormControl("", Validators.pattern("[0-9]10"))
+      ); <br>
+      Об'єкт FormControl може мати різні форми визначення. <br>
+      Зокрема, як перший параметр можна передавати значення за замовчуванням для елемента, а як другий параметр - набір валідаторів<br>
+    </div>
+  </mat-tab>
+  <mat-tab label="LAB 6">
+    <!-- <app-weather></app-weather>-->
+    <button mat-button (click)="routerToMove('weather')">Weather</button>
+    <button mat-button (click)="routerToMove('history-Weather')">History</button>
+    <button mat-button (click)="routerToMove('weather_about')">About</button>
+  </mat-tab>
+  <mat-tab label="LAB 7"> Content 7 </mat-tab>
+
+</mat-tab-group>
+
+
+
+
+

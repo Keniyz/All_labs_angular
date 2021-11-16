@@ -18,21 +18,13 @@ export class Weather2Component implements OnInit {
   constructor(public router: Router, private postsService: PostService) { console.log('222222')}
 
   ngOnInit(): void {
-    this.postsService.getWeatherHistory('50.4333','30.5167','1636566066').subscribe(
+    this.postsService.getWeatherHistory('50.4333','30.5167','1637074866').subscribe(
       (res: any) => {
         this.weatherDataHistory = res.hourly;
         this.city = res.timezone;
         this.sunrisedt = res.current.sunrise;
         this.sunsetdt= res.current.sunset;
         this.temp = res.current.temp.toFixed();
-
-
-        /*
-        this.lat = res.coord.lat;
-        this.lon = res.coord.lon;
-        this.wind = res.wind.speed;
-
-        this.temoeratura = '°C';*/
         console.log(res)
       });
   }
